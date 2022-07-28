@@ -1,0 +1,70 @@
+{
+  "products": [
+    {
+      "id" : 1,
+      "name": "iphone 12 pro",
+      "desc": "iphone 12th generation",
+      "price": 999,
+      "color": "#33505a",
+      "img":"https://m.media-amazon.com/images/I/71xkMA+gvYL._SX679_.jpg"
+
+    },
+    {
+      "id" : 2,
+      "name": "Samsung Galaxy A23",
+      "desc": "Samsung Galaxy A23 Light Blue, 8GB RAM, 128GB Storage",
+      "price": 250,
+      "color": "#33505a",
+      "img": "https://m.media-amazon.com/images/I/71eqnu0wdDL._SX679_.jpg"
+    },
+    {
+      "id" : 3,
+      "name": "iphone 12 pro",
+      "desc": "iphone 12th generation",
+      "price": 999,
+      "color": "#33505a",
+      "img":"https://m.media-amazon.com/images/I/71xkMA+gvYL._SX679_.jpg"
+    },
+    {
+      "id" : 4,
+      "name": "iphone 12 pro",
+      "desc": "iphone 12th generation",
+      "price": 999,
+      "color": "#33505a",
+      "img":"https://m.media-amazon.com/images/I/71xkMA+gvYL._SX679_.jpg"
+    },
+    {
+      "id" : 5,
+      "name": "iphone 12 pro",
+      "desc": "iphone 12th generation",
+      "price": 999,
+      "color": "#33505a",
+      "img":"https://m.media-amazon.com/images/I/71xkMA+gvYL._SX679_.jpg"
+    },
+    {
+      "id" : 6,
+      "name": "iphone 12 pro",
+      "desc": "iphone 12th generation",
+      "price": 999,
+      "color": "#33505a",
+      "img":"https://m.media-amazon.com/images/I/71xkMA+gvYL._SX679_.jpg"
+    },
+    {
+      "id" : 7,
+      "name": "iphone 12 pro",
+      "desc": "iphone 12th generation",
+      "price": 999,
+      "color": "#33505a",
+      "img":"https://m.media-amazon.com/images/I/71xkMA+gvYL._SX679_.jpg"
+    },
+    {
+      "id" : 8,
+      "name": "HP 15",
+      "desc": "HP 15 11th Gen Intel Core i5 Processor 15.6 inches(39.6cm) FHD Laptop (8GB/512GB SSD +32GB Intel Optane/Windows 10 Home/MS Office/Jet Black/1.69 Kg)",
+      "price": 1999,
+      "color": "#33505a",
+      "img": "https://m.media-amazon.com/images/I/71fvR6NCIFL._SL1500_.jpg"
+    }
+
+  ]
+}

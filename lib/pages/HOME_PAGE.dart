@@ -1,23 +1,50 @@
+import 'dart:convert';
 
-
+import 'package:catalogapp/models/catalog.dart';
+import 'package:catalogapp/width/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class homepage extends StatelessWidget {
+import '../width/item_width.dart';
+
+class homepage extends StatefulWidget {
   const homepage({Key? key}) : super(key: key);
 
   @override
+  State<homepage> createState() => _homepageState();
+}
+
+class _homepageState extends State<homepage> {
+  @override
+  void initState() {
+    super.initState();
+    loaddata();
+  }
+loaddata() async{
+
+  final catalogjson = await rootBundle.loadString("assets/files/catalog.json");
+  final decodedata = jsonDecode(catalogjson);
+  var productdata = decodedata["products"];
+
+  catalogmodel.items =List.from(productdata).map<Item>((item) => Item.fromjson(item)).toList();
+  setState(() {});
+  }
+
+
+  @override
   Widget build(BuildContext context) {
-    int h = 30;
+
     return Scaffold(
       appBar:AppBar(
         shadowColor: Colors.amber,
         title: Text("catalog"),) ,
-      body:Center(
-        child:Container(
-          child: Text("u are become a loduu $h's day"),
-        ),
+      body: ListView.builder(
+        itemCount:catalogmodel.items.length,
+        itemBuilder: (context, index){
+          return itemview(item:catalogmodel.items[index],);
+    },
       ),
-      drawer: Drawer(),
+      drawer: mydrawer(),
     );
   }
 }
