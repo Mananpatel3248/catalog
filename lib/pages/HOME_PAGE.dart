@@ -38,11 +38,13 @@ loaddata() async{
       appBar:AppBar(
         shadowColor: Colors.amber,
         title: Text("catalog"),) ,
-      body: ListView.builder(
-        itemCount:catalogmodel.items.length,
-        itemBuilder: (context, index){
-          return itemview(item:catalogmodel.items[index],);
-    },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio: ),
+            itemBuilder: itemBuilder,
+          itemCount: catalogmodel.items.length,
+        )
       ),
       drawer: mydrawer(),
     );
