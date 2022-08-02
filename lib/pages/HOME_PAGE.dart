@@ -41,8 +41,25 @@ loaddata() async{
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(childAspectRatio: ),
-            itemBuilder: itemBuilder,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2 ),
+            itemBuilder: (context, index){
+              final item = catalogmodel.items[index];
+              return Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(2),
+                ),
+                child: GridTile(
+                  header: Text(item.name,
+                  style:TextStyle(
+                    fontWeight: FontWeight.bold ,
+                  )
+                  ),
+                    child: Image.network(catalogmodel.items[index].img),
+                  footer: Text(item.price.toString()),
+
+                ),
+              );
+            },
           itemCount: catalogmodel.items.length,
         )
       ),
