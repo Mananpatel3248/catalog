@@ -27,18 +27,17 @@ class home_detalis extends StatelessWidget {
                     shape: MaterialStateProperty.all(StadiumBorder())
                 ),
 
-                child: "Buy".text.make()).wh(100, 50)
+                child: "Add to cart".text.make()).wh(120, 50)
           ],).p32(),
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
         bottom: false,
-        left: false,
         right: false,
         child: Column(
           children: [
             Hero(
-                tag:  key!= catalog.id.toString() ,
+                tag:  Key(catalog.id.toString()) ,
                 child: Image.network(catalog.img),
             ).h32(context),
             Expanded(child: VxArc(
@@ -48,13 +47,18 @@ class home_detalis extends StatelessWidget {
               child: Container(
                 color: Colors.white  ,
                 width: context.screenWidth,
-                child: Column(
-                  children: [
-                    catalog.name.text.bold.xl4.color(Mytheme.darkblue).make(),
-                    catalog.desc.text.xl.textStyle(context.captionStyle).color(Mytheme.darkblue).make(),
-                    10.heightBox,
-                  ],
-                ).py64(),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      catalog.name.text.bold.xl4.color(Mytheme.darkblue).make(),
+                      catalog.desc.text.xl.textStyle(context.captionStyle).color(Mytheme.darkblue).make().p16(),
+                      10.heightBox,
+                      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+                          .text.textStyle(context.captionStyle).make().p16()
+                    ],
+
+                  ).py64(),
+                ),
               ),
             ))
           ],

@@ -1,4 +1,5 @@
 import 'package:catalogapp/pages/HOME_PAGE.dart';
+import 'package:catalogapp/pages/cartpage.dart';
 import 'package:catalogapp/pages/login_page.dart';
 import 'package:catalogapp/utiles/modules.dart';
 import 'package:catalogapp/width/theme.dart';
@@ -28,7 +29,8 @@ class MYAPP extends StatelessWidget {
       routes: {
         "/": (context) => loginpage(),
         module.loginroute:(context)=>loginpage(),
-        module.homeroute:(context)=>homepage()
+        module.homeroute:(context)=>homepage(),
+        module.cartpageroute:(context)=>cartpage()
       }
 
     );

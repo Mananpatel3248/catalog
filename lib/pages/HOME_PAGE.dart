@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:catalogapp/models/catalog.dart';
 import 'package:catalogapp/pages/home_detalis.dart';
+import 'package:catalogapp/utiles/modules.dart';
 import 'package:catalogapp/width/drawer.dart';
 import 'package:catalogapp/width/theme.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -86,7 +88,7 @@ class catalogimg extends StatelessWidget {
        child: VxBox(child: Row(
          children: [
            Hero(
-              tag:  key!= catalog.id.toString(),
+             tag:  Key(catalog.id.toString()) ,
               child: catalogimg(
                 image: catalog.img,),
            ),
@@ -148,27 +150,39 @@ loaddata() async{
   Widget build(BuildContext context) {
 
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(0.0),
       child: Scaffold(
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => Navigator.pushNamed(context, module.cartpageroute),
+
+          child: Icon(CupertinoIcons.cart),
+          backgroundColor: Mytheme.darkblue,
+        ),
 
         body: SafeArea(
-          child: Container(
-            padding: Vx.m32,
+
+          
             child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  catalogheader(),
-                  if(catalogmodel.items!=null && catalogmodel.items.isNotEmpty)
-                       Cataloglist().expand().py16()    
 
-                  else
-                   CircularProgressIndicator().centered().expand()
+              child: Container(
+                padding: Vx.m32,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        catalogheader(),
+                        if(catalogmodel.items!=null && catalogmodel.items.isNotEmpty)
+                             Cataloglist().expand().py16()
 
-                ],
+                        else
+                         CircularProgressIndicator().centered().expand()
+
+                      ],
+                    ),
+                  
+
               ),
-            ) ,
-          ),
+            ),
+         
         ),
 
         drawer: mydrawer()
