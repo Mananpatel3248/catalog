@@ -31,8 +31,8 @@ class catalogheader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Catalog App".text.xl4.bold.color(Mytheme.darkblue).make(),
-        "Trending Products".text.xl2.color(Mytheme.darkblue).make(),
+        "Catalog App".text.xl4.bold.color(context.theme.accentColor).make(),
+        "Trending Products".text.xl2.color(context.theme.accentColor).make(),
       ],
     );
   }
@@ -71,7 +71,7 @@ class catalogimg extends StatelessWidget {
 
     return Image.network(image,)
         .box.rounded.p8
-        .color(Colors.white).
+        .color(context.canvasColor).
     make().p16().w40(context);
   }
 }
@@ -90,15 +90,16 @@ class catalogimg extends StatelessWidget {
            Hero(
              tag:  Key(catalog.id.toString()) ,
               child: catalogimg(
-                image: catalog.img,),
+                image: catalog.img,
+              ),
            ),
            Expanded(child: SingleChildScrollView(
              child: Column(
                crossAxisAlignment: CrossAxisAlignment.start,
                mainAxisAlignment: MainAxisAlignment.center,
                children: [
-                 catalog.name.text.bold.xl.color(Mytheme.darkblue).make(),
-                 catalog.desc.text.textStyle(context.captionStyle).color(Mytheme.darkblue).make(),
+                 catalog.name.text.bold.xl.color(context.theme.accentColor).make(),
+                 catalog.desc.text.textStyle(context.captionStyle).color(context.theme.accentColor).make(),
                  10.heightBox,
                  ButtonBar(
                    alignment: MainAxisAlignment.spaceBetween,
@@ -107,13 +108,7 @@ class catalogimg extends StatelessWidget {
                    children: [
 
                    "\$${catalog.price}".text.xl.bold.make(),
-                   ElevatedButton(onPressed: (){},
-                       style: ButtonStyle(
-                         backgroundColor: MaterialStateProperty.all(Mytheme.darkblue ),
-                         shape: MaterialStateProperty.all(StadiumBorder())
-                       ),
-
-                       child: "Buy".text.make())
+                   _addtocart(),
                  ],).pOnly(right: 8.0)
                ],
              ),
@@ -122,10 +117,37 @@ class catalogimg extends StatelessWidget {
          ],
        )
 
-       ).color(Colors.white).rounded.square(150).make().py16(),
+       ).color(context.cardColor).rounded.square(150).make().py16(),
      );
    }
  }
+
+class _addtocart extends StatefulWidget {
+
+  const _addtocart({Key? key}) : super(key: key);
+
+  @override
+  State<_addtocart> createState() => _addtocartState();
+}
+
+class _addtocartState extends State<_addtocart> {
+   bool isadded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+        onPressed: (){
+      isadded = isadded.toggle();
+      setState((){});
+    },
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Mytheme.darkblue ),
+            shape: MaterialStateProperty.all(StadiumBorder())
+        ),
+
+        child: "Add to cart".text.make());
+  }
+}
+
 
  
 
@@ -152,11 +174,12 @@ loaddata() async{
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: Scaffold(
+        backgroundColor: context.cardColor,
         floatingActionButton: FloatingActionButton(
           onPressed: () => Navigator.pushNamed(context, module.cartpageroute),
 
           child: Icon(CupertinoIcons.cart),
-          backgroundColor: Mytheme.darkblue,
+          backgroundColor: context.theme.buttonColor,
         ),
 
         body: SafeArea(

@@ -12,9 +12,9 @@ class home_detalis extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: context.canvasColor,),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.canvasColor,
         child: ButtonBar( alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
 
@@ -23,12 +23,12 @@ class home_detalis extends StatelessWidget {
             "\$${catalog.price}".text.xl4.red800.bold.make(),
             ElevatedButton(onPressed: (){},
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Mytheme.darkblue ),
+                    backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
                     shape: MaterialStateProperty.all(StadiumBorder())
                 ),
 
                 child: "Add to cart".text.make()).wh(120, 50)
-          ],).p32(),
+          ],).p12(),
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -45,16 +45,16 @@ class home_detalis extends StatelessWidget {
               edge: VxEdge.TOP ,
               height: 30.0,
               child: Container(
-                color: Colors.white  ,
+                color: context.cardColor ,
                 width: context.screenWidth,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      catalog.name.text.bold.xl4.color(Mytheme.darkblue).make(),
-                      catalog.desc.text.xl.textStyle(context.captionStyle).color(Mytheme.darkblue).make().p16(),
+                      catalog.name.text.bold.xl4.color(context.accentColor).make(),
+                      catalog.desc.text.xl.textStyle(context.captionStyle).color(context.accentColor).make().p16(),
                       10.heightBox,
                       " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-                          .text.textStyle(context.captionStyle).make().p16()
+                          .text.color(context.accentColor).textStyle(context.captionStyle).make().p16()
                     ],
 
                   ).py64(),

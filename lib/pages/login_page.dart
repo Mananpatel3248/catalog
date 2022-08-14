@@ -1,6 +1,7 @@
 import 'package:catalogapp/utiles/modules.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class loginpage extends StatefulWidget {
   const loginpage({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _loginpageState extends State<loginpage> {
   Widget build(BuildContext context) {
     return Material(
 
-      color: Colors.white,
+      color: context.canvasColor,
 
       child: SingleChildScrollView(
         child: Form(
@@ -104,7 +105,7 @@ class _loginpageState extends State<loginpage> {
                   ),
                   ),
                 decoration: BoxDecoration(
-                    color: Colors.deepPurpleAccent,
+                    color: context.theme.buttonColor,
                   borderRadius: BorderRadius.circular(8)
                 ),
                 ),

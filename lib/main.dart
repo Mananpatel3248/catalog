@@ -20,7 +20,7 @@ class MYAPP extends StatelessWidget {
     return MaterialApp(
      //   home: homepage(),
         debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
+      themeMode: ThemeMode.system,
 
       theme: Mytheme.lighttheme(context),
       darkTheme: Mytheme.darktheme(context),
