@@ -136,6 +136,7 @@ class _addtocartState extends State<_addtocart> {
   Widget build(BuildContext context) {
     return ElevatedButton(
         onPressed: (){
+          final catalog = catalogmodel();
       isadded = isadded.toggle();
       setState((){});
     },
@@ -144,7 +145,7 @@ class _addtocartState extends State<_addtocart> {
             shape: MaterialStateProperty.all(StadiumBorder())
         ),
 
-        child: "Add to cart".text.make());
+        child: isadded ? Icon(Icons.done):"Add to cart".text.make());
   }
 }
 
